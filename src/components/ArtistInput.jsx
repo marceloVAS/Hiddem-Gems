@@ -14,7 +14,7 @@ export default function ArtistInput(props) {
       {
         headers: {
           Authorization:
-            'Bearer BQA1FD_OsQbP1e133GDM_PjuOhBhSZUNgPOPEb1IKcFjcq8-WgaKNQM77lKkYK3jPlWC6Ad8H2G0814mNcirE6LDClBwo8HhUKPwjY4nPkue_bW0GDjXQ893X7HqxKJbwiv6YfBNizwsFkOmFoT2hySeH_pBavgf0VGbX0hLyM03hVM78r_ofiBc92Al67S-PQfZkPnrmR4e1sdV8QoSulM7rnhvKSkixA_Jk3zl_oibx6QyyGNrbo7-vRBgfaeWzXDFkP31WYc',
+            'Bearer ' + props.spotifyToken,
         },
       }
     );

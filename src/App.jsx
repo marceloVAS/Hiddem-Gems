@@ -1,11 +1,10 @@
-import { useState } from 'react'
-import ArtistSelected from './components/ArtistSelected';
+import AuthFinal from './components/AuthFinal';
 import './App.css';
 
 export default function App() {
   return (
     <div>
-      <ArtistSelected />
+      <AuthFinal/>
     </div>
   );
 }

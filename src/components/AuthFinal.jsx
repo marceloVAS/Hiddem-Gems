@@ -3,6 +3,7 @@ import ArtistSelected from './ArtistSelected';
 
 const clientId = "1563dad1ac504112ac2fa6dfe7117aeb"; // Replace with your client ID
 
+//redirects user to spotify auth page, generates code verifiers
 const codeConditional = async () => {
   redirectToAuthCodeFlow(clientId);
   // TODO: Redirect to Spotify authorization page
@@ -15,7 +16,8 @@ const codeConditional = async () => {
     const params = new URLSearchParams();
     params.append("client_id", clientId);
     params.append("response_type", "code");
-    params.append("redirect_uri", "https://hiddengems.marcelovas.com");
+    params.append("redirect_uri", "http://localhost:5173");
+    // params.append("redirect_uri", "https://hiddengems.marcelovas.com");
     params.append("scope", "user-read-private user-read-email");
     params.append("code_challenge_method", "S256");
     params.append("code_challenge", challenge);
@@ -42,15 +44,26 @@ const codeConditional = async () => {
       .replace(/=+$/, '');
   }
 }
-
+//uses code from spotify auth page to generate token and put token on local storage
 const getAccessToken = async (clientId, code) => {
   const verifier = localStorage.getItem("verifier");
+
+  //Set local storage value with a time to live
+  const setWithExpiry = (key, value,ttl) =>{
+    const now = new Date();
+    const item = {
+      value: value,
+      expiry: now.getTime() + ttl
+    };
+    localStorage.setItem(key, JSON.stringify(item));
+  }
 
   const params = new URLSearchParams();
   params.append("client_id", clientId);
   params.append("grant_type", "authorization_code");
   params.append("code", code);
-  params.append("redirect_uri", "https://hiddengems.marcelovas.com");
+  params.append("redirect_uri", "http://localhost:5173");
+  // params.append("redirect_uri", "https://hiddengems.marcelovas.com");
   params.append("code_verifier", verifier);
 
   const result = await fetch("https://accounts.spotify.com/api/token", {
@@ -58,9 +71,20 @@ const getAccessToken = async (clientId, code) => {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: params
   });
-
+  
+  if (!result.ok) {
+    // Handle error here
+    console.error("Error occurred:", result.statusText);
+    const errorResponse = await result.json();
+    console.error("Error response:", errorResponse);
+    return;
+  }
   const { access_token } = await result.json();
-  console.log('token ' + access_token);
+  console.log('params ' + params);
+  console.log('API URL ' + result);
+  console.log('token2 ' + access_token);
+  /* localStorage.setItem("token", access_token); */
+  setWithExpiry("token", access_token, 3600000);
   return access_token;
 }
 
@@ -70,15 +94,30 @@ export default function AuthFinal() {
   console.log('code' + code);
   const [token, setToken] = useState('');
 
-  useEffect(() => {
-    if (code) {
-        getAccessToken(clientId, code)
-        .then((access_token) => {
-          setToken(access_token);
-        });
-    } else {
-      codeConditional();
+  //Get local storage data and if its expired remove it from local storage, otherwise return it.
+  const getWithExpiry = (key) =>{
+    const itemStr = localStorage.getItem(key);
+    if (!itemStr) {
+      return null;
     }
+    const item = JSON.parse(itemStr);
+    const now = new Date();
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key);
+      return null;
+    }
+    return item.value;
+  }
+
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+    console.log('token1 ' + token);
+    if (!token) {
+      getAccessToken(clientId, code)
+        .then(() => {
+          setToken(getWithExpiry("token"));
+        });
+    } else { }
   }, []);
 
   return (
@@ -86,7 +125,7 @@ export default function AuthFinal() {
       {token ? (
         <ArtistSelected spotifyToken={token}/>
       ) : (
-        <div>Authenticating...</div>
+        <button onClick={codeConditional}>Login with spotify</button>
       )}
     </div>
   );

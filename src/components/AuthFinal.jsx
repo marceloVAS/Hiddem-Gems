@@ -16,8 +16,8 @@ const codeConditional = async () => {
     const params = new URLSearchParams();
     params.append("client_id", clientId);
     params.append("response_type", "code");
-    //params.append("redirect_uri", "http://localhost:5173");
-    params.append("redirect_uri", "https://hiddengems.marcelovas.com");
+    params.append("redirect_uri", "http://localhost:5173");
+    //params.append("redirect_uri", "https://hiddengems.marcelovas.com");
     params.append("scope", "user-read-private user-read-email");
     params.append("code_challenge_method", "S256");
     params.append("code_challenge", challenge);
@@ -62,8 +62,8 @@ const getAccessToken = async (clientId, code) => {
   params.append("client_id", clientId);
   params.append("grant_type", "authorization_code");
   params.append("code", code);
-  //params.append("redirect_uri", "http://localhost:5173");
-  params.append("redirect_uri", "https://hiddengems.marcelovas.com");
+  params.append("redirect_uri", "http://localhost:5173");
+  //params.append("redirect_uri", "https://hiddengems.marcelovas.com");
   params.append("code_verifier", verifier);
 
   const result = await fetch("https://accounts.spotify.com/api/token", {
@@ -121,11 +121,14 @@ export default function AuthFinal() {
   }, []);
 
   return (
-    <div>
+    <div className='col-lg-12'>
       {token ? (
         <ArtistSelected spotifyToken={token}/>
       ) : (
-        <button onClick={codeConditional}>Login with spotify</button>
+        <div className='row d-flex justify-content-center'>
+          <h4>HiddenGems won't collect any data from your account.</h4>
+          <button className='neo-btn' onClick={codeConditional}>Login with spotify</button>
+        </div>
       )}
     </div>
   );

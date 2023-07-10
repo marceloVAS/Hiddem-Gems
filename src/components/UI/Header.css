@@ -1,0 +1,14 @@
+.header{
+    background-color: #25E83D;
+}
+
+.logo{
+    height: 235px;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar{
+    border-top: 4px solid #000;
+    border-bottom: 4px solid #000;
+}

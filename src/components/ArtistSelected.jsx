@@ -31,7 +31,7 @@ export default function ArtistSelected({spotifyToken}) {
         artistId +
         '&seed_genres=' +
         artistGenre +
-        '&limit=3&max_popularity=30',
+        '&limit=4&max_popularity=30',
       {
         headers: {
           Authorization:
@@ -46,27 +46,38 @@ export default function ArtistSelected({spotifyToken}) {
   };
 
   return (
-    <div>
-      <ArtistInput selectedArtist={selectedArtistHandler} spotifyToken={spotifyToken} />
-      {artist ? (
-        <Card className="limit" onClick={artistClickHandler}>
-          <img src={artistImg} height="160" width="160" />
-          <p>{artist}</p>
-        </Card>
-      ) : (
-        <></>
-      )}
-
-      <br />
-      {tracks ? (
-        <div>
-          {tracks.map((artist) => (
-            <ArtistRecommend recommendations={artist} />
-          ))}
+    <div className='row d-flex justify-content-center'>
+      <div className='col-lg-4'>
+        <div className='row'>
+          <ArtistInput selectedArtist={selectedArtistHandler} spotifyToken={spotifyToken} />
+          {artist ? (
+            <>
+              <Card className="searched col" onClick={artistClickHandler}>
+                <img src={artistImg} />
+                <div>
+                <h5 className='track-name'>{artist}</h5>
+                  <p className='artist-name'>Artist</p>
+                </div>
+              </Card>
+              <div className='col mt-3'>If this is the artist you were thinking of, click on them to generate some suggestions.</div>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
-      ) : (
-        <></>
-      )}
+      </div>
+
+      <div className='col-lg-5'>
+        {tracks ? (
+          <div className='row'>
+            {tracks.map((artist) => (
+              <ArtistRecommend recommendations={artist} />
+            ))}
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 }

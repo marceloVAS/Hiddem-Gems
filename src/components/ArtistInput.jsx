@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './UI/ArtistInput.css';
 
 export default function ArtistInput(props) {
   const [artistInput, setArtistInput] = useState('');
@@ -43,7 +44,9 @@ export default function ArtistInput(props) {
 
   return (
     <form onSubmit={artistSubmitHandler}>
+      <label>Think of an artist you love and insert their name on the search bar!</label>
       <input type="text" onChange={artistInputChangeHandler} />
+      <button className={`neo-btn py-1 ${artistInput ? '' : 'disabled'}`}>Search</button>
     </form>
   );
 }

@@ -1,26 +1,40 @@
-.header{
+.header {
     background-color: #25E83D;
 }
 
-.logo{
-    height: 150px;
+.logo {
+    padding: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.logo-txt{
+
+.logo-txt {
     z-index: 1;
     position: absolute;
 }
-.logo-txt h1{
+
+.logo-txt h1 {
     display: flex;
     justify-content: center;
     font-size: 64px;
 }
-.logo-txt p{
+
+.logo-txt p {
     display: flex;
     justify-content: center;
     font-size: 12px;
+}
+
+@media only screen and (max-width: 991px) {
+    .logo-txt h1 {
+        padding: 0 15px;
+        font-size: 12vw;
+    }
+
+    .logo-txt p {
+        font-size: 12px;
+    }
 }
 
 .diamond {
@@ -32,8 +46,9 @@
     box-sizing: content-box;
     position: relative;
     margin: 0px 0 50px 0;
-  }
-  .diamond:after {
+}
+
+.diamond:after {
     content: "";
     position: absolute;
     top: 25px;
@@ -43,28 +58,27 @@
     border-style: solid;
     border-color: white transparent transparent transparent;
     border-width: 70px 50px 0 50px;
-  }
+}
 
-.navbar{
+.navbar {
     border-top: 4px solid #000;
     border-bottom: 4px solid #000;
 }
 
-.navbar-nav{
+.navbar-nav {
     flex-direction: row;
 }
 
-.nav-link{
+.nav-link {
     font-weight: 600;
     font-family: IBM Plex Mono;
     padding: 8px;
 }
 
-.nav-link:hover{
-    text-decoration:underline;
+.nav-link:hover {
+    text-decoration: underline;
 }
 
-.nav-link.active{
-    text-decoration:wavy underline;
+.nav-link.active {
+    text-decoration: wavy underline;
 }
-

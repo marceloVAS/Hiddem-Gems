@@ -1,7 +1,20 @@
-/*marcelo css*/
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:600,700italic');
+@import url('https://fonts.googleapis.com/css?family=Inter:regular,bold,italic&subset=latin,latin-ext');
+
 html body{
   place-items:flex-start;
-  background-color: #6947FF;
+  background-color: #FFF5EA;
+  font-family: Inter;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: 700;
+  font-family: IBM Plex Mono;
+  font-style: italic;
+}
+
+p, h5{
+  margin:0;
 }
 
 .neo-btn{
@@ -16,17 +29,4 @@ html body{
   border-color: #000;
 }
 
-.container{
-  min-height: 570px;
-}
-
-/* .card-link{
-  display: block;
-  width: fit-content;
-  height: auto;
-} */
-
-p, h5{
-  margin:0;
-}
 

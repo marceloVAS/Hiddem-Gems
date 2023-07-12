@@ -13,7 +13,7 @@
 
 .card img {
   max-height: 157px;
-  max-width: 157px;
+  max-width: 172px;
   margin-bottom: 10px;
   object-fit: cover;
 }
@@ -21,22 +21,27 @@
 @media only screen and (max-width: 991px) {
   .card{
     flex-direction: row;
+    height: fit-content;
   }
   .card img {
-    width: 170px;
+    width: 80px;
+    height:80px;
+    margin: 0 10px 0 0;
   }
 }
 
-.artist-name {
+.secondary-name {
   font-size: 12px;
+  font-style: normal;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: fit-content;
 }
 
-.track-name {
+.primary-name {
   font-size: 16px;
+  font-style: normal;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -46,8 +51,8 @@
 
 /* Searched Artist Card CSS */
 .searched {
-  max-width: 217px;
-  height: 275px;
+  /* max-width: 217px; */
+  /* height: 275px; */
   cursor: pointer;
 }
 

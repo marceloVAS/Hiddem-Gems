@@ -52,14 +52,14 @@ export default function ArtistSelected({spotifyToken}) {
           <ArtistInput selectedArtist={selectedArtistHandler} spotifyToken={spotifyToken} />
           {artist ? (
             <>
-              <Card className="searched col" onClick={artistClickHandler}>
+              <Card className="searched col-lg-6 col-sm-12" onClick={artistClickHandler}>
                 <img src={artistImg} />
                 <div>
-                <h5 className='track-name'>{artist}</h5>
-                  <p className='artist-name'>Artist</p>
+                <h5 className='primary-name'>{artist}</h5>
+                  <p className='secondary-name'>Artist</p>
                 </div>
               </Card>
-              <div className='col mt-3'>If this is the artist you were thinking of, click on them to generate some suggestions.</div>
+              <div className='col-lg-6 col-sm-12 mt-3'>If this is the artist you were thinking of, click on them to generate some suggestions.</div>
             </>
           ) : (
             <></>

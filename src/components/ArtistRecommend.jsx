@@ -10,8 +10,8 @@ export default function ArtistRecommend({ recommendations }) {
         <Card className="recommended">
           <img src={recommendations.album.images[1].url} />
           <div>
-            <h5 className='track-name'>{recommendations.name}</h5>
-            <p className='artist-name'>{recommendations.artists[0].name}</p>
+            <h5 className='primary-name'>{recommendations.name}</h5>
+            <p className='secondary-name'>{recommendations.artists[0].name}</p>
           </div>
         </Card>
       </a>

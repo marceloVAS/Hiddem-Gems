@@ -1,25 +1,35 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 import './UI/Header.css'
 
-export default function Header(){
+export default function Header() {
 
-    return(
+    
+
+    return (
         <div className='row header mb-5'>
             <div className='logo'>
-                <h1>Hidden Gems</h1>
+                <div className='logo-txt'>
+                    <h1>Hidden Gems</h1>
+                    <p>Find unknown artists & songs that are similar to your favorites</p>
+                </div>
+                <span className="diamond"></span>
             </div>
-             <nav class="navbar navbar-expand-lg ">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-                        <ul class="navbar-nav ">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <nav className="navbar navbar-expand-lg ">
+                <div className="container">
+                    <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+                        <ul className="navbar-nav ">
+                            <li className="nav-item">
+                                {/* <a className="nav-link active" href="#">HOME</a> */}
+                                <Link className="nav-link active" to='/'>HOME</Link>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
+                            <li className="nav-item">
+                                {/* <a className="nav-link" href="#">ABOUT</a> */}
+                                <Link className="nav-link" to='/about'>ABOUT</Link>
+                            </li>
+                            <li className="nav-item">
+                                {/* <a className="nav-link" aria-current="page" href="#">FEEDBACK</a> */}
+                                <Link className="nav-link" to='/'>FEEDBACK</Link>
                             </li>
                         </ul>
                     </div>

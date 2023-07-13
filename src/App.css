@@ -5,7 +5,6 @@ html body{
   place-items:flex-start;
   background-color: #FFF5EA;
   font-family: Inter;
-  color: #000;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -23,6 +22,7 @@ p, h5{
   border: 2px solid #000;
   border-radius: 0px;
   background: #2FFF2F;
+  color:#000;
 }
 
 .neo-btn:hover{

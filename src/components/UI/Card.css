@@ -66,4 +66,8 @@
   .recommended{
     height: fit-content;
   }
+
+  .primary-name,.secondary-name{
+    white-space:normal;
+  }
 }

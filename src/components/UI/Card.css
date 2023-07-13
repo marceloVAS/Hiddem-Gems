@@ -18,6 +18,13 @@
   object-fit: cover;
 }
 
+/*Card for just text display*/
+.card.info{
+  width: 50%;
+  box-shadow: 8px 8px 0px 0px #000;
+  margin-bottom: 20px;
+ }
+
 @media only screen and (max-width: 991px) {
   .card{
     flex-direction: row;
@@ -27,6 +34,11 @@
     width: 80px;
     height:80px;
     margin: 0 10px 0 0;
+  }
+
+  .card.info{
+    flex-direction: column;
+    width: 100%;
   }
 }
 

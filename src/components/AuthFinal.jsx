@@ -18,7 +18,7 @@ const codeConditional = async () => {
     params.append("response_type", "code");
     // params.append("redirect_uri", "http://localhost:5173");
     params.append("redirect_uri", "https://hiddengems.marcelovas.com");
-    params.append("scope", "user-read-private user-read-email");
+    params.append("scope", "");
     params.append("code_challenge_method", "S256");
     params.append("code_challenge", challenge);
 
@@ -91,7 +91,7 @@ const getAccessToken = async (clientId, code) => {
 export default function AuthFinal() {
   const params = new URLSearchParams(window.location.search);
   const code = params.get("code");
-  console.log('code' + code);
+  console.log('code ' + code);
   const [token, setToken] = useState('');
 
   //Get local storage data and if its expired remove it from local storage, otherwise return it.
@@ -125,9 +125,16 @@ export default function AuthFinal() {
       {token ? (
         <ArtistSelected spotifyToken={token}/>
       ) : (
-        <div className='row d-flex justify-content-center'>
-          <h4>HiddenGems won't collect any data from your account.</h4>
-          <button className='neo-btn' onClick={codeConditional}>Login with spotify</button>
+        <div className='container d-flex justify-content-center'>
+          <div className='col-lg-9 col-sm-12'>
+            <div className='row d-flex justify-content-center'>
+              <h4 className='text-center'>Hidden Gems won't keep any personal data from your account.</h4>
+              <div className='card info'>
+                <p>Since Hidden Gems uses Spotify to recommend songs, you have to be logged into an account to have access to Spotify's archive.</p>
+                <button className='neo-btn' onClick={codeConditional}>Login with Spotify</button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>

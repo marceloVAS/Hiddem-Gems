@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ArtistSelected from './ArtistSelected';
 
+
 const clientId = "1563dad1ac504112ac2fa6dfe7117aeb"; // Replace with your client ID
 
 //redirects user to spotify auth page, generates code verifiers
@@ -125,7 +126,7 @@ export default function AuthFinal() {
       {token ? (
         <ArtistSelected spotifyToken={token}/>
       ) : (
-        <div className='container d-flex justify-content-center'>
+        <div className='container info-height d-flex justify-content-center'>
           <div className='col-lg-9 col-sm-12'>
             <div className='row d-flex justify-content-center'>
               <h4 className='text-center'>Hidden Gems won't keep any personal data from your account.</h4>

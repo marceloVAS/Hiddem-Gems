@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:600,700italic');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,600,700italic');
 @import url('https://fonts.googleapis.com/css?family=Inter:regular,bold,italic&subset=latin,latin-ext');
 
 html body{
@@ -30,4 +30,7 @@ p, h5{
   border-color: #000;
 }
 
+.info-height{
+  min-height: calc(100vh - 381px);
+}
 

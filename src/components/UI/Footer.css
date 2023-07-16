@@ -1,0 +1,19 @@
+.footer-txt{
+    font-weight: 300;
+    font-family: IBM Plex Mono;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.navbar.footer{
+    border-top: 2px solid #000;
+    border-bottom: none;
+    padding: 2px;
+    background-color: #25E83D;
+}
+
+@media only screen and (max-width: 991px) {
+    .navbar.footer .container .navbar-nav{
+        flex-direction: column;
+    } 
+}

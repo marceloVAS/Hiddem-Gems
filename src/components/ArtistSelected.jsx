@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ArtistInput from './ArtistInput';
 import ArtistRecommend from './ArtistRecommend';
 import Card from './UI/Card';
+import './UI/ArtistSelected.css';
 
 export default function ArtistSelected({spotifyToken}) {
   //Artist values from the user input
@@ -46,7 +47,7 @@ export default function ArtistSelected({spotifyToken}) {
   };
 
   return (
-    <div className='row d-flex justify-content-center'>
+    <div className='row main-content d-flex justify-content-center'>
       <div className='col-lg-4'>
         <div className='row'>
           <ArtistInput selectedArtist={selectedArtistHandler} spotifyToken={spotifyToken} />

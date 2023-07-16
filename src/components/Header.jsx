@@ -15,22 +15,17 @@ export default function Header() {
             </div>
             <nav className="navbar navbar-expand-lg ">
                 <div className="container d-flex justify-content-sm-end justify-content-center">
-                    <div>
-                        <ul className="navbar-nav ">
-                            <li className="nav-item">
-                                {/* <a className="nav-link active" href="#">HOME</a> */}
-                                <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} to='/'>HOME</Link>
-                            </li>
-                            <li className="nav-item">
-                                {/* <a className="nav-link" href="#">ABOUT</a> */}
-                                <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} to='/about'>ABOUT</Link>
-                            </li>
-                            <li className="nav-item">
-                                {/* <a className="nav-link" aria-current="page" href="#">FEEDBACK</a> */}
-                                <Link className="nav-link" to='/'>FEEDBACK</Link>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul className="navbar-nav ">
+                        <li className="nav-item">
+                            <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} to='/'>HOME</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} to='/about'>ABOUT</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to='/'>FEEDBACK</Link>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </div>

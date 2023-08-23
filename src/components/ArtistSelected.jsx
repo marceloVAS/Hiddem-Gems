@@ -48,7 +48,7 @@ export default function ArtistSelected({spotifyToken}) {
 
   return (
     <div className='row main-content d-flex justify-content-center'>
-      <div className='col-lg-4'>
+      <div className='col-lg-5'>
         <div className='row'>
           <ArtistInput selectedArtist={selectedArtistHandler} spotifyToken={spotifyToken} />
           {artist ? (
@@ -56,8 +56,11 @@ export default function ArtistSelected({spotifyToken}) {
               <Card className="searched col-lg-6 col-sm-12" onClick={artistClickHandler}>
                 <img src={artistImg} />
                 <div>
-                <h5 className='primary-name'>{artist}</h5>
+                  <h5 className='primary-name'>{artist}</h5>
                   <p className='secondary-name'>Artist</p>
+                  <div className='d-flex justify-content-end pt-2'>
+                    <img className='icon' src='src/components/UI/icon/Spotify_Icon_RGB_Black.png'></img>
+                  </div>  
                 </div>
               </Card>
               <div className='col-lg-6 col-sm-12 mt-3'>If this is the artist you were thinking of, click on them to generate some suggestions.</div>

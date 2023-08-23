@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './UI/Card';
-import icon from './UI/icon/Spotify_Icon_RGB_Black.PNG'
+import icon from './UI/icon/Spotify_Icon_RGB_Black.png'
 
 export default function ArtistRecommend({ recommendations }) {
   console.log('recommend');

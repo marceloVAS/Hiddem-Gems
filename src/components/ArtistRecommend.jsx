@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './UI/Card';
+import icon from './UI/icon/Spotify_Icon_RGB_Black.PNG'
 
 export default function ArtistRecommend({ recommendations }) {
   console.log('recommend');
@@ -13,7 +14,7 @@ export default function ArtistRecommend({ recommendations }) {
             <h5 className='primary-name'>{recommendations.name}</h5>
             <p className='secondary-name'>{recommendations.artists[0].name}</p>
             <div className='d-flex align-items-center pt-3'>
-              <img className='icon' src='src/components/UI/icon/Spotify_Icon_RGB_Black.png'></img>
+              <img className='icon' src={icon}></img>
               <h5 className='primary-name m-0 ms-2'>PLAY ON SPOTIFY</h5>
             </div>
           </div>

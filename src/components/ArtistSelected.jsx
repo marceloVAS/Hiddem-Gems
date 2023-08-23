@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ArtistInput from './ArtistInput';
 import ArtistRecommend from './ArtistRecommend';
 import Card from './UI/Card';
+import icon from './UI/icon/Spotify_Icon_RGB_Black.PNG'
 import './UI/ArtistSelected.css';
 
 export default function ArtistSelected({spotifyToken}) {
@@ -59,7 +60,7 @@ export default function ArtistSelected({spotifyToken}) {
                   <h5 className='primary-name'>{artist}</h5>
                   <p className='secondary-name'>Artist</p>
                   <div className='d-flex justify-content-end pt-2'>
-                    <img className='icon' src='src/components/UI/icon/Spotify_Icon_RGB_Black.png'></img>
+                    <img className='icon' src={icon}></img>
                   </div>  
                 </div>
               </Card>

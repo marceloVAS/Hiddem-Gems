@@ -34,3 +34,7 @@ p, h5{
   min-height: calc(100vh - 381px);
 }
 
+.spotify-logo{
+  width: 100px;
+}
+

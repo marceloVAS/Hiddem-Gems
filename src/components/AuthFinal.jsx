@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ArtistSelected from './ArtistSelected';
-
+import SpotifyLogo from './UI/img/Spotify_Logo_RGB_Black.png'
+import SpotifyIcon from './UI/img/Spotify_Icon_RGB_Black.png'
 
 const clientId = "1563dad1ac504112ac2fa6dfe7117aeb"; // Replace with your client ID
 
@@ -17,8 +18,8 @@ const codeConditional = async () => {
     const params = new URLSearchParams();
     params.append("client_id", clientId);
     params.append("response_type", "code");
-    // params.append("redirect_uri", "http://localhost:5173");
-    params.append("redirect_uri", "https://hiddengems.marcelovas.com");
+    params.append("redirect_uri", "http://localhost:5173");
+    //params.append("redirect_uri", "https://hiddengems.marcelovas.com");
     params.append("scope", "");
     params.append("code_challenge_method", "S256");
     params.append("code_challenge", challenge);
@@ -63,8 +64,8 @@ const getAccessToken = async (clientId, code) => {
   params.append("client_id", clientId);
   params.append("grant_type", "authorization_code");
   params.append("code", code);
-  // params.append("redirect_uri", "http://localhost:5173");
-  params.append("redirect_uri", "https://hiddengems.marcelovas.com");
+  params.append("redirect_uri", "http://localhost:5173");
+  //params.append("redirect_uri", "https://hiddengems.marcelovas.com");
   params.append("code_verifier", verifier);
 
   const result = await fetch("https://accounts.spotify.com/api/token", {
@@ -122,7 +123,7 @@ export default function AuthFinal() {
   }, []);
 
   return (
-    <div className='col-lg-12'>
+    <div className='col-lg-12 main-content'>
       {token ? (
         <ArtistSelected spotifyToken={token}/>
       ) : (
@@ -132,10 +133,13 @@ export default function AuthFinal() {
               <h4 className='text-center'>Hidden Gems won't keep any personal data from your account.</h4>
               <div className='card info'>
                 <p>Since Hidden Gems uses Spotify to recommend songs, you have to be logged into an account to have access to Spotify's archive.</p>
-                <button className='neo-btn' onClick={codeConditional}>Login with Spotify</button>
+                <button className='neo-btn d-flex justify-content-center' onClick={codeConditional}>
+                  <img className='icon me-2' src={SpotifyIcon}></img> LOGIN WITH SPOTIFY
+                </button>
               </div>
             </div>
           </div>
+          {/* <img className='spotify-logo' src={SpotifyLogo}></img> */}
         </div>
       )}
     </div>

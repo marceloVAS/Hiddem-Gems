@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import ArtistInput from './ArtistInput';
 import ArtistRecommend from './ArtistRecommend';
 import Card from './UI/Card';
-import icon from './UI/img/Spotify_Icon_RGB_Black.png'
+import SpotifyIcon from './UI/img/Spotify_Icon_RGB_Black.png'
+import SpotifyLogo from './UI/img/Spotify_Logo_RGB_Black.png'
 import './UI/ArtistSelected.css';
 
 export default function ArtistSelected({spotifyToken}) {
@@ -47,8 +48,16 @@ export default function ArtistSelected({spotifyToken}) {
     setTracks(data.tracks);
   };
 
+  const logoutClickHandler = ()=> {
+      localStorage.clear();
+      window.location.reload();
+  }
+
   return (
-    <div className='row main-content d-flex justify-content-center'>
+    <div className='row d-flex justify-content-center'>
+      <div className='d-flex justify-content-end'>
+        <button className="neo-btn" onClick={logoutClickHandler}>Logout</button>
+      </div>
       <div className='col-lg-5'>
         <div className='row'>
           <ArtistInput selectedArtist={selectedArtistHandler} spotifyToken={spotifyToken} />
@@ -60,7 +69,7 @@ export default function ArtistSelected({spotifyToken}) {
                   <h5 className='primary-name'>{artist}</h5>
                   <p className='secondary-name'>Artist</p>
                   <div className='d-flex justify-content-end pt-2'>
-                    <img className='icon' src={icon}></img>
+                    <img className='icon' src={SpotifyIcon}></img>
                   </div>  
                 </div>
               </Card>
@@ -82,6 +91,9 @@ export default function ArtistSelected({spotifyToken}) {
         ) : (
           <></>
         )}
+        <div className='col-12 d-flex justify-content-center mt-3'>
+          Powered by <img className='spotify-logo ms-2' src={SpotifyLogo}></img>
+        </div>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ArtistInput from './ArtistInput';
 import ArtistRecommend from './ArtistRecommend';
 import Card from './UI/Card';
-import icon from './UI/icon/Spotify_Icon_RGB_Black.png'
+import icon from './UI/img/Spotify_Icon_RGB_Black.png'
 import './UI/ArtistSelected.css';
 
 export default function ArtistSelected({spotifyToken}) {

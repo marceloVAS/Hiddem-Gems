@@ -4,7 +4,7 @@ form .neo-btn{
 
 .disabled{
     pointer-events: none;
-    background-color: gray;
+    background-color: gray !important;
 }
 
 input{

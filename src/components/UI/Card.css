@@ -11,9 +11,16 @@
   box-shadow: 8px 8px 0px 0px #000;
 }
 
-.card img {
+.card.searched  img {
   max-height: 227px;
   max-width: 227px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.card.recommended img {
+  max-height: 203px;
+  max-width: 203px;
   margin-bottom: 10px;
   object-fit: cover;
 }

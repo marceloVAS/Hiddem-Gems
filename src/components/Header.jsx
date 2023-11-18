@@ -23,7 +23,7 @@ export default function Header() {
                             <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} to='/about'>ABOUT</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to='/'>FEEDBACK</Link>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDEpJE_skZ5IEWuSjfQvM5kxvXbkG3pwu75KCHHcwmX0yDPA/viewform?usp=sf_link" className="nav-link" target="_blank">FEEDBACK</a>
                         </li>
                     </ul>
                 </div>

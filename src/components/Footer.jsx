@@ -11,10 +11,10 @@ export default function Header() {
                             <p className='footer-txt'>v1 | built by Marcelo Sousa</p>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href='https://www.linkedin.com/in/marcelovas/'>LINKEDIN</a>
+                            <a className="nav-link" href='https://www.linkedin.com/in/marcelovas/' target="_blank">LINKEDIN</a>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" href='https://www.marcelovas.com/index.html'>PORTFOLIO</a>
+                        <a className="nav-link" href='https://www.marcelovas.com/index.html' target="_blank">PORTFOLIO</a>
                         </li>
                     </ul>
                 </div>
